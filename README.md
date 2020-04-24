@@ -1,2 +1,54 @@
 # web-js-utils
 utilities as js functions for html, css and more
+These utilities allow vanilla javascript based development without using cubursome framework, nor transpilers
+
+# Import
+ES6 modules export and import, no using classes for minimal code impact
+
+<img src="./media/import.png" width=400>
+
+# Functions
+## html()
+the `html()` function is extreamely simple yet powerful, especially when combined with a VS.Code plugin such as [es6-string-html](https://marketplace.visualstudio.com/items?itemName=Tobermory.es6-string-html)
+
+* the example below takes an edge consisting of two points and and a color, returns an SVG path element
+
+<img src="./media/svg_path.png" width="600">
+
+## defined()
+improves code readability by reducing the existance check in javascript to a simple function call
+
+## uid() suid()
+unique identifiers for giving ids to components, using both time and a random number for fast components creation within the same millisecond
+
+## send()
+simplified custom events, forwards data into the detail member of the event
+
+## temp()
+similar to html but creates the component in a template, so does not require a parent, and helps for bottom up components struture building
+
+## css()
+same as html but for css, a VS.Code plugin [es6-string-css](https://marketplace.visualstudio.com/items?itemName=bashmish.es6-string-css) helps to highlight the css.
+
+Just with this function, it is possible to argue on why a framework and a transpiler is required for using css in js while it's obiously that simple to embed css. Note that this is only possible thanks to `CSSStyleSheet()` concept.
+
+<img src="./media/css_in_js.png" width="800">
+
+## br()
+save 36 characters or more, and so improve readability
+
+## hr()
+similar to br
+
+## image()
+creates an image component from the parent and url
+
+## Events
+a js replacement to jQuery events which could have some side effects and not have the expected behavior somethimes, e.g. with libraries such bootstrap toggle.
+
+## save_json()
+Object requires few steps before ending on a file
+
+## rand_col()
+random color generation
+
