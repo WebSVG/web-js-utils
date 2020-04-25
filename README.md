@@ -28,9 +28,9 @@ simplified custom events, forwards data into the detail member of the event
 similar to html but creates the component in a template, so does not require a parent, and helps for bottom up components struture building
 
 ## css()
-same as html but for css, a VS.Code plugin [es6-string-css](https://marketplace.visualstudio.com/items?itemName=bashmish.es6-string-css) helps to highlight the css.
+`css()` allows writing parametric css in javascript. A VS.Code plugin [es6-string-css](https://marketplace.visualstudio.com/items?itemName=bashmish.es6-string-css) helps to highlight the css.
 
-Just with this function, it is possible to argue on why a framework and a transpiler is required for using css in js while it's obiously that simple to embed css. Note that this is only possible thanks to `CSSStyleSheet()` concept.
+Just with this function, it is possible to argue on why a framework and a transpiler are required to use css in js while it's obiously that simple to embed css. Note that this is only possible thanks to `CSSStyleSheet()` concept. The function itself is wrapping a single call to `sheet.insertRule()` just to make it more readable.
 
 <img src="./media/css_in_js.png" width="800">
 
