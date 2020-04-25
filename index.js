@@ -20,14 +20,19 @@ function send(event_name,data){
 	window.dispatchEvent(event);
 }
 
-function temp(tagName,html_text){
-    template.insertAdjacentHTML("beforeend",html_text);
-    let elements = template.getElementsByTagName(tagName);
-    let res_svg =  elements[elements.length-1];
-    return res_svg;
+function temp(html_text){
+    const fragment = document.createRange().createContextualFragment(html_text);
+    template.appendChild(fragment);//this also returns fragment, not the newly created node
+    return template.childNodes[template.childNodes.length-1];
 }
 
-function html(parent,tagName,html_text){
+function html(parent,html_text){
+    const fragment = document.createRange().createContextualFragment(html_text);
+    parent.appendChild(fragment);//this also returns fragment, not the newly created node
+    return parent.childNodes[parent.childNodes.length-1];
+}
+
+function html_tag(parent,tagName,html_text){
     parent.insertAdjacentHTML("beforeend",html_text);
     let elements = parent.getElementsByTagName(tagName);
     let res_svg =  elements[elements.length-1];
@@ -91,5 +96,6 @@ export{
     suid,
     send,
     temp,
-    css
+    css,
+    html_tag
 }

@@ -3,13 +3,18 @@ utilities as js functions for html, css and more
 These utilities allow vanilla javascript based development without using cubursome framework, nor transpilers
 
 # Import
-ES6 modules export and import, no using classes for minimal code impact
+ES6 modules export and import, not using classes for minimal code impact
 
 ```javascript
 import {html,css,suid} from "./web-js-utils.js"
 ```
 
-# Functions
+# 2.0.0
+- no tagName required on the `html()` and `temp()` functions
+- backward compatibility for some cases (SVG context) kept with `html_tag()` the difference is that `html()` is now simpler to use (no tagName redundancy) but does not set a context node bound to a tagName. More about the internally used function `createContextualFragment()` [here](https://developer.mozilla.org/en-US/docs/Web/API/Range/createContextualFragment).
+- renamed entry to `index.js`
+
+# 1.0.0
 ## html()
 the `html()` function is extreamely simple yet powerful, especially when combined with a VS.Code plugin such as [es6-string-html](https://marketplace.visualstudio.com/items?itemName=Tobermory.es6-string-html)
 
