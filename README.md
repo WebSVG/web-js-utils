@@ -10,14 +10,21 @@ import {html,css,suid} from "./web-js-utils.js"
 ```
 
 # 2.0.0
-- no tagName required on the `html()` and `temp()` functions
-- backward compatibility for some cases (SVG context) kept with `html_tag()` the difference is that `html()` is now simpler to use (no tagName redundancy) but does not set a context node bound to a tagName. More about the internally used function `createContextualFragment()` [here](https://developer.mozilla.org/en-US/docs/Web/API/Range/createContextualFragment).
+- non compatible function with 1.0.0 : `html()`
+- change required for `html()`, remove tagName parameter but not supported by svg elements
+- to keep backward compatibility for svg elements : rename `html()` to `html_tag()`
 - renamed entry to `index.js`
 
-# 1.0.0
+# Functions
 ## html()
-the `html()` function is extreamely simple yet powerful, especially when combined with a VS.Code plugin such as [es6-string-html](https://marketplace.visualstudio.com/items?itemName=Tobermory.es6-string-html)
+- the `html()` function is extreamely simple yet powerful, especially when combined with a VS.Code plugin such as [es6-string-html](https://marketplace.visualstudio.com/items?itemName=Tobermory.es6-string-html)
+- 2.0.0 update : the difference is that `html()` is now simpler to use (no tagName redundancy) but does not set a context node bound to a tagName. More about the internally used function `createContextualFragment()` [here](https://developer.mozilla.org/en-US/docs/Web/API/Range/createContextualFragment).
+- example usage below creating a list of bootstrap columns
 
+<img src="./media/html_usage.png" width=800>
+
+## html_tag()
+* can be used inside an svg element
 * the example below takes an edge consisting of two points and and a color, returns an SVG path element
 
 <img src="./media/svg_path.png" width="600">
