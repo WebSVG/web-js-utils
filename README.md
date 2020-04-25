@@ -8,6 +8,10 @@ ES6 modules export and import, not using classes for minimal code impact
 ```javascript
 import {html,css,suid} from "./web-js-utils.js"
 ```
+# 2.1.0
+- fixed `html()` to support to be context independent as inject directly into the DOM without Fragments
+- added `htmls()` for adding a list of elements
+- deprecated `html_tag()`
 
 # 2.0.2
 - non compatible function with 1.0.0 : `html()`
@@ -18,16 +22,10 @@ import {html,css,suid} from "./web-js-utils.js"
 # Functions
 ## html()
 - the `html()` function is extreamely simple yet powerful, especially when combined with a VS.Code plugin such as [es6-string-html](https://marketplace.visualstudio.com/items?itemName=Tobermory.es6-string-html)
-- 2.0.0 update : the difference is that `html()` is now simpler to use (no tagName redundancy) but does not set a context node bound to a tagName. More about the internally used function `createContextualFragment()` [here](https://developer.mozilla.org/en-US/docs/Web/API/Range/createContextualFragment).
+- 2.1.0 update : the difference to 1.0.0 is that `html()` is now simpler to use (no tagName redundancy).
 - example usage below creating a list of bootstrap columns
 
 <img src="./media/html_usage.png" width=800>
-
-## html_tag()
-* can be used inside an svg element
-* the example below takes an edge consisting of two points and and a color, returns an SVG path element
-
-<img src="./media/svg_path.png" width="600">
 
 ## defined()
 improves code readability by reducing the existance check in javascript to a simple function call
@@ -46,7 +44,7 @@ similar to html but creates the component in a template, so does not require a p
 
 Just with this function, it is possible to argue on why a framework and a transpiler are required to use css in js while it's obiously that simple to embed css. Note that this is only possible thanks to `CSSStyleSheet()` concept. The function itself is wrapping a single call to `sheet.insertRule()` just to make it more readable.
 
-<img src="./media/css_in_js.png" width="800">
+<img src="./media/css_in_js.png" width="600">
 
 ## br()
 save 36 characters or more, and so improve readability
@@ -66,3 +64,6 @@ Object requires few steps before ending on a file
 ## rand_col()
 random color generation
 
+# Open issues
+- how to make `html()` usage in an esvg element in stead of `html_tag()` ?
+- it is not possible to add `range.selectNode(parent)` to `html()` as it would then fail when `parent` is a template with `the given Node has no parent`

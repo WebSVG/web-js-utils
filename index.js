@@ -27,12 +27,17 @@ function temp(html_text){
 }
 
 function html(parent,html_text){
-    const fragment = document.createRange().createContextualFragment(html_text);
-    parent.appendChild(fragment);//this also returns fragment, not the newly created node
+    parent.insertAdjacentHTML("beforeend",html_text);
     return parent.childNodes[parent.childNodes.length-1];
 }
 
+function htmls(parent,html_text){
+    parent.insertAdjacentHTML("beforeend",html_text);
+    return parent.childNodes;
+}
+
 function html_tag(parent,tagName,html_text){
+    console.warn("html_tag() deprecated, replace with html()")
     parent.insertAdjacentHTML("beforeend",html_text);
     let elements = parent.getElementsByTagName(tagName);
     let res_svg =  elements[elements.length-1];
@@ -52,7 +57,7 @@ function hr(parent){
 }
 
 function image(parent,url){
-    return html(parent,"image",/*html*/`
+    return html_tag(parent,"image",/*html*/`
         <image x="0" y="0" xlink:href=${url}></image>
     `)
 }
@@ -97,5 +102,6 @@ export{
     send,
     temp,
     css,
-    html_tag
+    html_tag,
+    htmls
 }
