@@ -1,6 +1,6 @@
 {
   "name": "web-js-utils",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "utilities as js functions for html, css and more",
   "main": "index.js",
   "scripts": {

@@ -9,7 +9,7 @@ ES6 modules export and import, not using classes for minimal code impact
 import {html,css,suid} from "./web-js-utils.js"
 ```
 
-# 2.0.0
+# 2.0.2
 - non compatible function with 1.0.0 : `html()`
 - change required for `html()`, remove tagName parameter but not supported by svg elements
 - to keep backward compatibility for svg elements : rename `html()` to `html_tag()`
