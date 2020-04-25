@@ -5,7 +5,9 @@ These utilities allow vanilla javascript based development without using cuburso
 # Import
 ES6 modules export and import, no using classes for minimal code impact
 
-<img src="./media/import.png" width=400>
+```javascript
+import {html,css,suid} from "./web-js-utils.js"
+```
 
 # Functions
 ## html()
